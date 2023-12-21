@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px; /* Adjust the width as needed */
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
+        <span id="emailRegex"></span>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required />
+        <span id="phoneRegex"></span>
+
+        <label for="DOB">DOB:</label>
+        <input type="text" id="DOB" name="DOB" required />
+        <span id="dobRegex"></span>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required />
+        <span id="pwdRegex"></span>
+
+        <button type="submit" id="signup">Sign Up</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    var btn = document.getElementById("signup");
+    var email = document.getElementById("email");
+    var phone = document.getElementById("phone");
+    var dob = document.getElementById("DOB");
+    var pwd = document.getElementById("password");
+    var emailR = document.getElementById("emailRegex");
+    var phoneR = document.getElementById("phoneRegex");
+    var dobR = document.getElementById("dobRegex");
+    var pwdR = document.getElementById("pwdRegex");
+    btn.addEventListener("click", function (e) {
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value)) {
+        console.log("error");
+        emailR.style.display = "block";
+        emailR.innerText = "Invalid email address";
+        emailR.style.color = "red";
+      } else {
+        emailR.style.display = "none";
+      }
+      var dobRegex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+      if (!dobRegex.test(dob.value)) {
+        dobR.style.display = "block";
+        dobR.innerText = "Invalid DOB";
+        dobR.style.color = "red";
+      } else {
+        dobR.style.display = "none";
+      }
+      var phoneNoRegex = /^(?:\+91)?\d{10}$/;
+      if (!phoneNoRegex.test(phone.value)) {
+        phoneR.style.display = "block";
+        phoneR.innerText = "Invalid phone number";
+        phoneR.style.color = "red";
+      } else {
+        phoneR.style.display = "none";
+      }
+      var phoneNoRegex = /^(?:\+91)?\d{10}$/;
+      if (!phoneNoRegex.test(phone.value)) {
+        phoneR.style.display = "block";
+        phoneR.innerText = "Invalid phone number";
+        phoneR.style.color = "red";
+      } else {
+        phoneR.style.display = "none";
+      }
+      var phoneNoRegex = /^(?:\+91)?\d{10}$/;
+      if (!phoneNoRegex.test(phone.value)) {
+        phoneR.style.display = "block";
+        phoneR.innerText = "Invalid phone number";
+        phoneR.style.color = "red";
+      } else {
+        phoneR.style.display = "none";
+      }
+      var pwdRegex = /^(?=.*[A-Z])(?=.*[a-z]{3,})(?=.*[!@#$%^&*()_+])[A-Za-z!@#$%^&*()_+\d]{8,}$/;
+      if (!pwdRegex.test(pwd.value)) {
+        pwdR.style.display = "block";
+        pwdR.innerText = "Invalid Password";
+        pwdR.style.color = "red";
+      } else {
+        pwdR.style.display = "none";
+      }
+      e.preventDefault();
+    });
+    
+  </script>
+</html>
